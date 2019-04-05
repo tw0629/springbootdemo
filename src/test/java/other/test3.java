@@ -27,8 +27,16 @@ public class test3 {
     @Test
     public void test8() {
 
-        System.out.println("=====================aaa========================");
-        System.out.println("=====================bbb========================");
-        System.out.println("=====================ccc========================");
+        System.out.println("=====================qqq========================");
+        System.out.println("=====================qqq========================");
+        System.out.println("=====================qqq========================");
+    }
+
+    @Test
+    public void test9() {
+
+        System.out.println("=====================www========================");
+        System.out.println("=====================www========================");
+        System.out.println("=====================www========================");
     }
 }
