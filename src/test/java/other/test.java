@@ -127,4 +127,12 @@ public class test {
         System.out.println("返回结果数据个数" + list.size());
         System.out.println("返回结果数据个数" + JSON.toJSONString(list));
     }
+
+    @Test
+    public void test7() {
+
+        System.out.println("=====================1========================");
+        System.out.println("=====================2========================");
+        System.out.println("=====================3========================");
+    }
 }
