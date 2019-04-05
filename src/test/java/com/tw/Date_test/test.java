@@ -117,4 +117,39 @@ public class test {
     }
 
 
+    /**
+     * https://blog.csdn.net/DAOYUANWANG/article/details/51713640
+     */
+    @Test
+    public void test6() {
+
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = dateformat.parse("2020-01-01");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("=============>"+date);
+        System.out.println("=============>"+dateformat.format(date));
+
+
+    }
+
+    @Test
+    public void test7(){
+
+        String string = "2016-10-24 21:59:06";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date parse = null;
+        try {
+            parse = sdf.parse(string);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(parse);
+    }
+
+
 }

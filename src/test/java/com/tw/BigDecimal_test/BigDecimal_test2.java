@@ -3,6 +3,7 @@ package com.tw.BigDecimal_test;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class BigDecimal_test2 {
 
@@ -19,4 +20,38 @@ public class BigDecimal_test2 {
         System.out.println(bdv3);
 
     }
+
+
+    @Test
+    public void test2(){
+
+        float avg = (float) 3/10;
+        BigDecimal  avgScore = BigDecimal.valueOf(avg);
+
+        System.out.println("==========>"+avgScore);
+
+        float avg2 = (float) 3/9;
+        System.out.println("==========>"+avg2);
+        NumberFormat numberFormat = NumberFormat.getPercentInstance();
+        numberFormat.setMaximumFractionDigits(1);
+        String s = numberFormat.format(avg2);
+        System.out.println("==========>"+s);
+
+    }
+
+
+    @Test
+    public void test3(){
+
+
+        BigDecimal bigDecimal = new BigDecimal(10000);
+
+        System.out.println("==========>"+bigDecimal.toString());
+
+
+    }
+
+
+
+
 }
