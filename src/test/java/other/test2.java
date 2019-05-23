@@ -137,6 +137,41 @@ public class test2 {
 
     }
 
+    @Test
+    public void test7(){
 
+        List list = new ArrayList();
+
+        int batchCount = 100;
+
+        if (list!=null){
+            int recCount=list.size();
+            if (recCount>0 && recCount<=batchCount){
+
+                //operate
+            }
+            if (recCount>batchCount){
+
+                int times = recCount / batchCount;
+                int residue = recCount % batchCount;
+                if (residue > 0) {
+                    times = times + 1;
+                }
+                for (int i=0;i<times;i++){
+                    if (i==times-1){
+                        //operate
+                    }else{
+                        //operate
+                    }
+                }
+            }
+        }else {
+
+            //
+        }
+
+    }
+
+    
 
 }

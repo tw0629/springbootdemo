@@ -102,14 +102,15 @@ public class test {
         Date date = new Date();
         System.out.println("=============>"+date);
 
-        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sd2 = new SimpleDateFormat("yyyy-MM-dd");
 
         String s = sd.format(date);
         System.out.println("=============>"+s);
 
         Date d = null;
         try {
-            d = sd.parse(s);
+            d = sd2.parse(s);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -151,5 +152,32 @@ public class test {
         System.out.println(parse);
     }
 
+
+
+    public static final String simple = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String dtSimpleShort = "yyyy-MM-dd";
+
+    public static Date formatDate(Date date){
+        SimpleDateFormat sd = new SimpleDateFormat(simple);
+        SimpleDateFormat sd2 = new SimpleDateFormat(dtSimpleShort);
+
+        String s = sd.format(date);
+        try {
+            date = sd2.parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    @Test
+    public void test8(){
+        Date date = new Date();
+        System.out.println("=============>"+date);
+
+        date = formatDate(date);
+        System.out.println("=============>"+date);
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.tw.tree;
+package com.tw.DataStructures.tree;
 
 /*
  * Copyright [2015] [Jeff Lee]

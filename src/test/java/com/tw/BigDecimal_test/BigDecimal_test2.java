@@ -3,6 +3,7 @@ package com.tw.BigDecimal_test;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 
 public class BigDecimal_test2 {
@@ -44,9 +45,18 @@ public class BigDecimal_test2 {
     public void test3(){
 
 
-        BigDecimal bigDecimal = new BigDecimal(10000);
+        BigDecimal bigDecimal = new BigDecimal(123456.789);
+        BigDecimal bigDecimal2 = new BigDecimal(10000);
 
         System.out.println("==========>"+bigDecimal.toString());
+
+        BigDecimal bigDecimal3 = bigDecimal.divide(bigDecimal2);
+
+        System.out.println("==========>"+bigDecimal3.toString());
+
+        bigDecimal3 = bigDecimal.divide(bigDecimal2,2, RoundingMode.HALF_UP);
+
+        System.out.println("==========>"+bigDecimal3.toString());
 
 
     }

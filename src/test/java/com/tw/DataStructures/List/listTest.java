@@ -1,4 +1,4 @@
-package com.tw.List;
+package com.tw.DataStructures.List;
 
 import org.junit.Test;
 
