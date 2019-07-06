@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.common.HttpclientUtil.HttpUtil;
 import com.model.TerminalAddressModel3;
+import com.tw.Model.CommentInfoDTO;
 import org.junit.Test;
 
 import java.util.*;
@@ -126,5 +127,18 @@ public class test {
         list.add(terminalAddressModel);
         System.out.println("返回结果数据个数" + list.size());
         System.out.println("返回结果数据个数" + JSON.toJSONString(list));
+    }
+
+    @Test
+    public void test7() {
+
+        CommentInfoDTO commentInfoDTO = new CommentInfoDTO();
+
+        System.out.println("===1===>"+commentInfoDTO.getCreator());
+
+        CommentInfoDTO commentInfoDTO2 = null;
+
+        System.out.println("===2===>"+commentInfoDTO2.getCreator());
+
     }
 }

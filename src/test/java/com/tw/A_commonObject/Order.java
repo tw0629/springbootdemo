@@ -15,6 +15,8 @@ public class Order {
 
     private Date date;
 
+    public Order(){};
+
     public Order(String no, Date date) {
         this.no = no;
         this.date = date;

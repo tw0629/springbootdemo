@@ -1,5 +1,7 @@
 package other;
 
+import com.alibaba.fastjson.JSON;
+import com.tw.A_commonObject.Order;
 import com.tw.CheckParam.CheckParamUtil;
 import com.tw.Enum_test.TagTypeEnum;
 import com.tw.Model.CommentInfoDTO;
@@ -172,6 +174,39 @@ public class test2 {
 
     }
 
-    
+    @Test
+    public void test8() {
+
+        boolean b = false;
+        if (!b) {
+            System.out.println("=======>");
+        }else {
+            System.out.println("=======>"+b);
+        }
+    }
+
+    @Test
+    public void test9() {
+        boolean b = "tian".equals("tian")&&!StringUtils.isEmpty("tian");
+        System.out.println("=======>"+b);
+
+        if (false||true) {
+
+            System.out.println("=======>"+"来了");
+
+        }
+
+    }
+
+    @Test
+    public void test10() {
+        Order order = new Order();
+        order.setDate(new Date());
+        order.setNo("0000");
+        String queryParam = JSON.toJSONString(order);
+        System.out.println(" ==========> "+ queryParam);
+
+    }
+
 
 }
