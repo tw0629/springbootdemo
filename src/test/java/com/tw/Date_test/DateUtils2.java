@@ -287,10 +287,6 @@ public class DateUtils2 {
      *            format pattern.
      * @return formatted date as string value.
      *
-     * @see #FORMAT_DATE_DEFAULT
-     * @see #FORMAT_DATE_YYYY_MM_DD
-     * @see #FORMAT_DATE_YYYY_MM_DD_HH_MM
-     * @see #FORMAT_DATE_YYYY_MM_DD_HH_MM_SS
      */
     public final static String format(Date date, String formatPattern) {
         if (date == null) {
@@ -339,7 +335,7 @@ public class DateUtils2 {
      * @return Date represents stringValue, null while parse exception occurred.
      */
     public final static Date tryParse(String stringValue) {
-        Date date = parse(stringValue, FORMAT_DATE_YYYY_MM_DD);
+        Date date = parse(stringValue, FORMAT_DATE_DEFAULT);
         if (date != null) {
             return date;
         }
@@ -859,7 +855,7 @@ public class DateUtils2 {
         {
             return null;
         }
-        DateFormat df = new SimpleDateFormat(FORMAT_DATE_YYYYMMDDHHMMSS);
+        DateFormat df = new SimpleDateFormat(FORMAT_DATE_YYYY_MM_DD_HH_MM_SS);
         return df.format(date);
 
     }
@@ -880,7 +876,7 @@ public class DateUtils2 {
      */
     public static String dateFormat2(Date date)
     {
-        DateFormat df = new SimpleDateFormat(FORMAT_DATE_YYYY_MM_DD);
+        DateFormat df = new SimpleDateFormat(FORMAT_DATE_DEFAULT);
         return df.format(date);
     }
 
@@ -963,6 +959,84 @@ public class DateUtils2 {
 
     }
 
+    public static String getDateange(Date endDate, Date nowDate) {
+
+            long nd = 1000 * 24 * 60 * 60;
+            long nh = 1000 * 60 * 60;
+            long nm = 1000 * 60;
+            // long ns = 1000;
+            // 获得两个时间的毫秒时间差异
+            long diff = endDate.getTime() - nowDate.getTime();
+            // 计算差多少天
+            long day = diff / nd;
+            // 计算差多少小时
+            long hour = diff % nd / nh;
+            // 计算差多少分钟
+            long min = diff % nd % nh / nm;
+            // 计算差多少秒//输出结果
+            // long sec = diff % nd % nh % nm / ns;
+            return day + "天" + hour + "小时" + min + "分钟";
+
+    }
+
+    public static long getDayRange(Date endDate, Date startDate) {
+
+        long nd = 1000 * 24 * 60 * 60;
+
+        // 获得两个时间的毫秒时间差异
+        long diff = endDate.getTime() - startDate.getTime();
+        // 计算差多少天
+        long day = diff / nd;
+
+        return day;
+    }
+
+    /**
+     * 更改日期Date的显示格式
+     */
+    public static Date modifyDateFormat(Date date, String format){
+        SimpleDateFormat sd = new SimpleDateFormat(format);
+        try {
+            date = sd.parse(sd.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * 日期详情获取日期
+     * @return
+     */
+    public static Date obtainYMD(Date date){
+
+        return modifyDateFormat(date,FORMAT_DATE_DEFAULT);
+    }
+
+    /**
+     * 将时间戳转换为日期
+     */
+    public static Date longToDate(long l, String formatStr){
+        SimpleDateFormat format =  new SimpleDateFormat(formatStr);
+        String d = format.format(l);
+        Date date= null;
+        try {
+            date = format.parse(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * 将时间戳转换为日期字符串
+     */
+    public static String longToDateStr(long l, String formatStr){
+        SimpleDateFormat format =  new SimpleDateFormat(formatStr);
+        Date date = new Date(l);
+        String dateStr = format.format(date);
+        return dateStr;
+    }
 
 
 }

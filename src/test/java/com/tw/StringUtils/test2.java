@@ -67,4 +67,15 @@ public class test2 {
          * -7
          */
     }
+
+    @Test
+    public void test4() {
+
+        String s = "名单筛选匹配结果.xlsx";
+
+        String substring = s.substring(0,s.lastIndexOf("."));
+
+        System.out.println("=========>"+substring);
+
+    }
 }

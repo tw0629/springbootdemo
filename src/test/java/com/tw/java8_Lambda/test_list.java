@@ -1,6 +1,8 @@
 package com.tw.java8_Lambda;
 
+import com.common.Model.CommentInfoDTO;
 import com.model.TerminalAddressEntity;
+import com.tw.Date_test.DateUtils3;
 import org.junit.Test;
 
 import java.util.*;
@@ -165,6 +167,41 @@ public class test_list {
         ArrayList<TerminalAddressEntity> tt = removeDuplicate2(dispatchList);
 
         System.out.println("去重之后： " + tt.toString());
+
+    }
+
+    @Test
+    public void test5(){
+        List<CommentInfoDTO> planEventVoList = new ArrayList<>();
+
+        CommentInfoDTO commentInfoDTO = new CommentInfoDTO();
+        commentInfoDTO.setId(1L);
+        commentInfoDTO.setDateCreate(new Date());
+        planEventVoList.add(commentInfoDTO);
+
+        CommentInfoDTO commentInfoDTO2 = new CommentInfoDTO();
+        commentInfoDTO2.setId(2L);
+        commentInfoDTO2.setDateCreate(DateUtils3.addDateDay(new Date(),-1));
+        planEventVoList.add(commentInfoDTO2);
+
+        CommentInfoDTO commentInfoDTO3 = new CommentInfoDTO();
+        commentInfoDTO3.setId(3L);
+        commentInfoDTO3.setDateCreate(DateUtils3.addDateDay(new Date(),-2));
+        planEventVoList.add(commentInfoDTO3);
+
+        System.out.println("=======>" + planEventVoList.toString());
+
+        //待处理按照待办计划跟进时间升序
+        //升序:由小到大
+        //planEventVoList.sort((CommentInfoDTO e1, CommentInfoDTO e2) -> e2.getDateCreate().compareTo(e1.getDateCreate()));
+
+
+        planEventVoList.sort(Comparator.comparing((CommentInfoDTO e) -> e.getDateCreate()));
+
+
+
+                System.out.println("=======>" + planEventVoList.toString());
+        System.out.println("=======>" );
 
     }
 

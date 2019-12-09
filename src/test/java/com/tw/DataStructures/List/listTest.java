@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,4 +46,46 @@ public class listTest {
         System.out.println("============>"+nullList.toString());
 
     }
+
+    /**
+     * 迭代器
+     */
+    @Test
+    public void test7(){
+        List<String> list = new ArrayList<String>();
+        list.add("Test1");
+        list.add("Test2");
+        list.add("Test3");
+        list.add("Test4");
+        list.add("Test5");
+
+        for(Iterator<String> it = list.iterator(); it.hasNext();){
+            if(it.next().equals("Test3")){
+                //it.remove();
+                list.add("Test6");
+                list.add("Test7");
+            }
+        }
+
+        for(String s : list){
+            System.out.println(s);
+        }
+
+        System.out.println("============>");
+
+
+    }
+
+
 }
+/**
+ *
+ methodInvocation
+ ReflectiveMethodInvocation:
+ public com.souche.mtl.visit.question.model.dto.ScoreBoardDto
+ com.souche.mtl.visit.question.service.command.impl.QuestionBusinessServiceImpl.calculateScore(java.util.List);
+ target is of class [com.souche.mtl.visit.question.service.command.impl.QuestionBusinessServiceImpl]
+
+
+
+ **/

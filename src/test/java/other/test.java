@@ -3,8 +3,12 @@ package other;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.common.HttpclientUtil.HttpUtil;
+import com.common.Model.AuthorityThirdUserCacheInfo;
+import com.common.Model.CommentInfoDTO;
+import com.common.Model.LoginUserInfoDTO;
 import com.model.TerminalAddressModel3;
-import com.tw.Model.CommentInfoDTO;
+import com.utils.ConvertUtil;
+import com.utils.DataStructureConvertUtil;
 import org.junit.Test;
 
 import java.util.*;
@@ -141,4 +145,32 @@ public class test {
         System.out.println("===2===>"+commentInfoDTO2.getCreator());
 
     }
+
+    @Test
+    public void test8(){
+        LoginUserInfoDTO loginUserInfoDTO = new LoginUserInfoDTO();
+        loginUserInfoDTO.setAppId("1");
+        loginUserInfoDTO.setOpenId("1");
+        loginUserInfoDTO.setCity("1");
+        loginUserInfoDTO.setName("1");
+        loginUserInfoDTO.setDateAuthPrivacy(new Date());
+
+        Map<String, String> map = objectToMap(loginUserInfoDTO);
+
+        System.out.println("======map=====>"+map);
+    }
+
+    private Map<String, String> objectToMap(Object object) {
+        AuthorityThirdUserCacheInfo cacheInfo = ConvertUtil.convert(object, AuthorityThirdUserCacheInfo.class);
+        //Map<String, String> map = objectToMap(loginToken, cacheInfo);
+        Map<String, String> map = null;
+        try {
+            map = (Map<String, String>) DataStructureConvertUtil.objectToMap2(cacheInfo);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return map;
+    }
+
+
 }

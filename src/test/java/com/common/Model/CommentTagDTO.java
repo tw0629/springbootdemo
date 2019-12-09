@@ -1,4 +1,4 @@
-package com.tw.Model;
+package com.common.Model;
 
 import java.io.Serializable;
 
