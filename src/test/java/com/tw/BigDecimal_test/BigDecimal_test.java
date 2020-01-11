@@ -1,6 +1,6 @@
 package com.tw.BigDecimal_test;
 
-import com.common.BigDecimalUtil;
+import com.common.util.BigDecimalUtil;
 import org.junit.Test;
 
 import java.math.BigDecimal;

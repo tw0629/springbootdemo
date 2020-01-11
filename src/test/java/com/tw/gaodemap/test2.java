@@ -2,7 +2,7 @@ package com.tw.gaodemap;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.common.HttpclientUtil.ApiHttpClient;
+import com.common.util.HttpclientUtil.ApiHttpClient;
 import com.model.gaodemap2.CheckInfoModel;
 import com.model.gaodemap2.MapCoordinateModel2;
 import com.model.gaodemap2.ReponseDistance;

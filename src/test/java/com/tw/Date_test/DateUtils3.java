@@ -264,4 +264,10 @@ public class DateUtils3 {
         return dft.format(calendar.getTime());
     }
 
+    public static int differDay(Date endDate,Date startDate){
+        long num = (endDate.getTime() - startDate.getTime())/(60*60*24*1000);
+        return (int)num;
+    }
+
+
 }

@@ -1,6 +1,6 @@
 package com.tw.encode_decode_test;
 
-import com.common.DigestCheck;
+import com.common.util.DigestCheck;
 import org.junit.Test;
 
 import java.security.MessageDigest;

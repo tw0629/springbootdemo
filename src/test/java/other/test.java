@@ -2,13 +2,13 @@ package other;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.common.HttpclientUtil.HttpUtil;
-import com.common.Model.AuthorityThirdUserCacheInfo;
-import com.common.Model.CommentInfoDTO;
-import com.common.Model.LoginUserInfoDTO;
+import com.common.util.HttpclientUtil.HttpUtil;
+import com.model.AuthorityThirdUserCacheInfo;
+import com.model.CommentInfoDTO;
+import com.model.LoginUserInfoDTO;
 import com.model.TerminalAddressModel3;
-import com.utils.ConvertUtil;
-import com.utils.DataStructureConvertUtil;
+import com.common.util.ConvertUtil;
+import com.common.util.DataStructureConvertUtil;
 import org.junit.Test;
 
 import java.util.*;

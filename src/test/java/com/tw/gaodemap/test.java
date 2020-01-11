@@ -3,7 +3,6 @@ package com.tw.gaodemap;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.common.HttpclientUtil.*;
 import com.model.gaodemap.AmapLocationInputModel;
 import com.model.gaodemap.MapCoordinateModel;
 import compare.urlConnectionAndHttpclient.UrlConnection;

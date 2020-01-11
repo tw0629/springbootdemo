@@ -582,4 +582,45 @@ public class test {
     }
 
 
+    @Test
+    public void test27(){
+
+        Date before = new Date();
+        Date after = new Date();
+
+        long beforeTime = before.getTime();
+        long afterTime = after.getTime();
+        long num = (afterTime - beforeTime) / (1000 * 60 * 60 * 24);
+        System.out.println("========XXX=======>"+num);
+
+
+        //设置转换的日期格式
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        //开始时间
+        Date startDate = null;
+        //结束时间
+        Date endDate = null;
+        try {
+            startDate = sdf.parse("2019-12-01 01:12:52");
+            endDate = sdf.parse("2019-12-22 12:12:52");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //得到相差的天数 betweenDate
+        long betweenDate = (endDate.getTime() - startDate.getTime())/(60*60*24*1000);
+
+        //打印控制台相差的天数
+        System.out.println(betweenDate);
+
+
+        int i = DateUtils3.differDay(endDate, startDate);
+        System.out.println("========XXX=======>"+i);
+
+
+    }
+
+
+
 }
