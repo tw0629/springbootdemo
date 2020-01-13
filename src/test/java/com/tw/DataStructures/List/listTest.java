@@ -82,9 +82,9 @@ public class listTest {
  *
  methodInvocation
  ReflectiveMethodInvocation:
- public com.souche.mtl.visit.question.model.dto.ScoreBoardDto
- com.souche.mtl.visit.question.service.command.impl.QuestionBusinessServiceImpl.calculateScore(java.util.List);
- target is of class [com.souche.mtl.visit.question.service.command.impl.QuestionBusinessServiceImpl]
+ public ScoreBoardDto
+ QuestionBusinessServiceImpl.calculateScore(java.util.List);
+ target is of class [QuestionBusinessServiceImpl]
 
 
 
