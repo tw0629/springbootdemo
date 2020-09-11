@@ -1,5 +1,7 @@
 package com.concurrentRob.coupon2;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -43,7 +45,53 @@ public class CouponDemo {
             }).start();
         }
 
+    }
+
+    @Test
+    public void test(){
+
+        Map<String,AtomicInteger> map = new HashMap();
+
+        for(int i=0;i<10;i++){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    getAutoIncreate(map,"a");
+                }
+            }).start();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    getAutoIncreate(map,"b");
+                }
+            }).start();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    getAutoIncreate(map,"c");
+                }
+            }).start();
+
+        }
+
 
 
     }
+
+    public void getAutoIncreate(Map<String,AtomicInteger> map,String key){
+        //Map<String,AtomicInteger> map = new HashMap();
+        if(map.get(key)==null) {
+            map.put(key,new AtomicInteger(1));
+        }else {
+            map.get(key).getAndIncrement();
+
+            //int value = map.get(key).incrementAndGet();
+            //map.put(key,new AtomicInteger(value));
+        }
+        System.out.println("key: "+key+" value: "+map.get(key));
+
+
+    }
+
 }
+
