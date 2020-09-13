@@ -1,5 +1,6 @@
 package other;
 
+import com.sun.beans.decoder.ValueObject;
 import org.junit.Test;
 
 /**
@@ -45,6 +46,7 @@ public class test3 {
         System.out.println(i==0);
         System.out.println("    ");
         System.out.println(i.equals(0));
+
 
     }
 
