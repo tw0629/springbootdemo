@@ -6,6 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.model.TerminalAddressModel;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class test_fastjson {
 
     @Test
@@ -66,6 +69,17 @@ public class test_fastjson {
         String params = "{\"workerCode1\":\"156022\"}";
         TerminalAddressModel terminalAddressModel = JSON.parseObject(params, TerminalAddressModel.class);
         System.out.println("===============>" + terminalAddressModel.toString());
+
+    }
+
+    @Test
+    public void test3() {
+
+        List<Long> list = Arrays.asList(1L,2L,3L,4L,5L);
+        String s = JSONObject.toJSONString(list);
+
+        System.out.println("============> "+s);
+
     }
 
 

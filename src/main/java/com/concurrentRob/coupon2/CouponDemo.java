@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -36,10 +37,12 @@ public class CouponDemo {
                     AtomicInteger kucun = map.get(integer % 5);
 
                     int zhangshu = kucun.decrementAndGet();
+                    long l = System.currentTimeMillis();
+
                     if(zhangshu<0){
-                        System.out.println("路人"+integer+" 没抢到优惠券的类型: "+(integer % 5));
+                        System.out.println("路人"+integer+" 没抢到优惠券的类型: "+(integer % 5) + " 当前时间为："+l);
                     }else {
-                        System.out.println("路人"+integer+" 抢购一张优惠券的类型: "+(integer % 5)+" 还剩:"+zhangshu+"张");
+                        System.out.println("路人"+integer+" 抢购一张优惠券的类型: "+(integer % 5)+" 还剩:"+zhangshu+"张" + " 当前时间为："+l);
                     }
                 }
             }).start();
@@ -71,10 +74,7 @@ public class CouponDemo {
                     getAutoIncreate(map,"c");
                 }
             }).start();
-
         }
-
-
 
     }
 
@@ -89,7 +89,45 @@ public class CouponDemo {
             //map.put(key,new AtomicInteger(value));
         }
         System.out.println("key: "+key+" value: "+map.get(key));
+    }
 
+
+    /**
+     *  ？？？看看是否有哪里不对的地方
+     */
+    @Test
+    public void test2(){
+
+        Map<Integer, Integer> map = new ConcurrentHashMap<>();
+        map.put(0, 5);
+        map.put(1, 15);
+        map.put(2, 10);
+        map.put(3, 5);
+        map.put(4, 10);
+
+        //注意: 这里只能有InheritableThreadLocal,不能用ThreadLocal
+        InheritableThreadLocal itl = null;
+        for(int i=0;i<100;i++){
+            itl = new InheritableThreadLocal();
+            itl.set(i);
+            InheritableThreadLocal finalItl = itl;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Integer integer = (Integer) finalItl.get();
+                    Integer kucun = map.get(integer % 5);
+
+                    int zhangshu = kucun-1;
+                    map.put(integer % 5,zhangshu);
+
+                    if(zhangshu<0){
+                        System.out.println("路人"+integer+" 没抢到优惠券的类型: "+(integer % 5));
+                    }else {
+                        System.out.println("路人"+integer+" 抢购一张优惠券的类型: "+(integer % 5)+" 还剩:"+zhangshu+"张");
+                    }
+                }
+            }).start();
+        }
 
     }
 
