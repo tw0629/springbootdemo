@@ -1,5 +1,7 @@
 package com.tw.java8_Lambda;
 
+import org.checkerframework.checker.units.qual.K;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.swing.*;
@@ -11,17 +13,23 @@ import java.util.stream.Collectors;
 
 public class test_map_list {
 
-    // 遍历Map
-    @Test
-    public void test() {
+    private Map<String, Integer> items;
 
-        Map<String, Integer> items = new HashMap<>();
+    @Before
+    public void init(){
+        items = new HashMap<>();
         items.put("A", 10);
         items.put("B", 20);
         items.put("C", 30);
         items.put("D", 40);
         items.put("E", 50);
         items.put("F", 60);
+    }
+
+
+    // 遍历Map
+    @Test
+    public void test() {
 
         //==============Java8之前的方式==============
         System.out.println("                                            ");
@@ -320,8 +328,32 @@ public class test_map_list {
         System.out.println("Average of all prime numbers : " + stats.getAverage());
     }
 
+    /**
+     * map computeIfAbsent方法
+     */
     @Test
     public void test14() {
+
+        /*
+        // 方法定义
+        default V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction) {
+            ...
+        }
+
+        // java8之前。从map中根据key获取value操作可能会有下面的操作
+        Object key = map.get("key");
+        if (key == null) {
+            key = new Object();
+            map.put("key", key);
+        }*/
+
+
+        // java8之后。上面的操作可以简化为一行，若key对应的value为空，会将第二个参数的返回值存入并返回
+        // Map<String, Integer> items
+        Object key  = items.computeIfAbsent("Z", k -> 8);
+        Object key2 = items.computeIfAbsent("A", k -> 1);
+
+        System.out.println("======>");
 
     }
 
