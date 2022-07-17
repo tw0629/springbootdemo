@@ -17,6 +17,9 @@ public class Apple {
 
     private Integer num;
 
+    public Apple() {
+    }
+
     public Apple(Integer id, String name, BigDecimal money, Integer num) {
         this.id = id;
         this.name = name;

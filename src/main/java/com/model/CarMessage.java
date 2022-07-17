@@ -6,9 +6,10 @@ import java.io.Serializable;
  * @author David Tian
  * @since 2019-02-02
  */
-public class CarMessage implements Serializable {
+//public class CarMessage implements Serializable {
+public class CarMessage {
 
-    private static final long serialVersionUID = 1884392288301615546L;
+    //private static final long serialVersionUID = 1884392288301615546L;
 
     private String vin;
 

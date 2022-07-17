@@ -1,6 +1,8 @@
 package com.tw.Date_test;
 
 
+import com.google.common.collect.Sets;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.sql.Timestamp;
@@ -618,6 +620,35 @@ public class test {
         int i = DateUtils3.differDay(endDate, startDate);
         System.out.println("========XXX=======>"+i);
 
+
+    }
+
+    @Test
+    public void test28() {
+
+        String day = String.valueOf(LocalDateTime.now().getDayOfYear());
+        System.out.println(day);
+        String s = StringUtils.leftPad("123456789qwertyui", 5, "0");
+        String s2 = StringUtils.leftPad(day, 5, "0");
+        String s3 = StringUtils.leftPad("123456789", 5, "0");
+        System.out.println(s);
+        String right = StringUtils.right(day, 1);
+        System.out.println(right);
+
+    }
+
+    @Test
+    public void test29(){
+        Long l = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        System.out.println(l);
+
+    }
+
+    @Test
+    public void test30(){
+        Integer show = -1;
+        Integer isShow = Sets.newHashSet(0,1).contains(show) ? show : 1;
+        System.out.println(isShow);
 
     }
 

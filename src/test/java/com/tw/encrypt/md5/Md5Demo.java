@@ -1,4 +1,4 @@
-package com.tw.md5;
+package com.tw.encrypt.md5;
 
 import org.junit.Test;
 

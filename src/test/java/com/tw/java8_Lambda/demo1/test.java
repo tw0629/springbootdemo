@@ -1,5 +1,9 @@
 package com.tw.java8_Lambda.demo1;
 
+import com.tw.A_commonObject.Order;
+import com.tw.Date_test.DateUtils;
+import com.tw.Date_test.DateUtils2;
+import com.tw.Date_test.DateUtils3;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -129,6 +133,91 @@ public class test {
     }
 
 
+    /**
+     * 分组最大
+     */
+    @Test
+    public void test7(){
+        List<Order> orderList = initOrderData();
+
+        Map<String, List<Order>> mapOrder = orderList.stream().collect(Collectors.groupingBy(Order::getNo));
+
+        Map<String, Optional<Order>> collect1 = orderList.stream().collect(Collectors.groupingBy(Order::getNo, Collectors.maxBy(Comparator.comparingLong(Order::getOrder))));
+        List<Order> collect11 = collect1.values().stream().map(Optional::get).collect(Collectors.toList());
+
+        Map<String, Optional<Order>> collect2 = orderList.stream().collect(Collectors.groupingBy(Order::getNo, Collectors.maxBy(Comparator.comparing(Order::getOrder))));
+        List<Order> collect21 = collect2.values().stream().map(Optional::get).collect(Collectors.toList());
+
+
+        List<Order> collect3 = collect11.stream().sorted(Comparator.comparing(Order::getDate, Comparator.reverseOrder())).collect(Collectors.toList());
+        List<Order> collect4 = collect21.stream().sorted(Comparator.comparing(Order::getDate, Comparator.reverseOrder())).collect(Collectors.toList());
+
+        System.out.println("");
+
+
+    }
+
+    public List<Order> initOrderData(){
+        List<Order> orderList = new ArrayList<>();
+        Order order = new Order();
+        order.setNo("1");
+        order.setOrder(1L);
+        order.setDataLong(1L);
+        order.setDate(DateUtils2.StringToDate("2022-04-01 06:00:00"));
+        orderList.add(order);
+        Order order2 = new Order();
+        order2.setNo("1");
+        order2.setOrder(2L);
+        order2.setDataLong(2L);
+        order2.setDate(DateUtils2.StringToDate("2022-04-06 06:00:00"));
+        orderList.add(order2);
+        Order order3 = new Order();
+        order3.setNo("1");
+        order3.setOrder(3L);
+        order3.setDataLong(3L);
+        order3.setDate(DateUtils2.StringToDate("2022-04-10 06:00:00"));
+        orderList.add(order3);
+
+        Order order4 = new Order();
+        order4.setNo("2");
+        order4.setOrder(4L);
+        order4.setDataLong(4L);
+        order4.setDate(DateUtils2.StringToDate("2022-05-10 06:00:00"));
+        orderList.add(order4);
+        Order order5 = new Order();
+        order5.setNo("2");
+        order5.setOrder(5L);
+        order5.setDataLong(5L);
+        order5.setDate(DateUtils2.StringToDate("2022-05-15 06:00:00"));
+        orderList.add(order5);
+        Order order6 = new Order();
+        order6.setNo("2");
+        order6.setOrder(6L);
+        order6.setDataLong(6L);
+        order6.setDate(DateUtils2.StringToDate("2022-05-20 06:00:00"));
+        orderList.add(order6);
+
+        Order order7 = new Order();
+        order7.setNo("3");
+        order7.setOrder(7L);
+        order7.setDataLong(7L);
+        order7.setDate(DateUtils2.StringToDate("2022-06-20 06:00:00"));
+        orderList.add(order7);
+        Order order8 = new Order();
+        order8.setNo("3");
+        order8.setOrder(8L);
+        order8.setDataLong(8L);
+        order8.setDate(DateUtils2.StringToDate("2022-06-23 06:00:00"));
+        orderList.add(order8);
+        Order order9 = new Order();
+        order9.setNo("3");
+        order9.setOrder(9L);
+        order9.setDataLong(9L);
+        order9.setDate(DateUtils2.StringToDate("2022-06-26 06:00:00"));
+        orderList.add(order9);
+
+        return orderList;
+    }
 
 }
 

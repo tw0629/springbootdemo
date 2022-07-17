@@ -1,5 +1,8 @@
 package com.tw.java8_Lambda.demo2;
 
+import com.tw.java8_Lambda.demo1.Apple;
+
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -84,4 +87,14 @@ public class Student {
         this.address = address;
     }
 
+
+    private List<Apple> appleList;
+
+    public List<Apple> getAppleList() {
+        return appleList;
+    }
+
+    public void setAppleList(List<Apple> appleList) {
+        this.appleList = appleList;
+    }
 }

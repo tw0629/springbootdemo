@@ -383,9 +383,12 @@ public class test2 {
         for(int i = 0 ; i<100; i++){
 
             //产生随机数
-            int number = random.nextInt(100 - 1 + 1) + 1;
+            //int number = random.nextInt(10 - 1 + 1) + 1;  // 1-10
+            //int number2 = new Random().nextInt(1 - 0 + 1) + 0; // 0-1
+            //double v = Math.floor(Integer.parseInt(String.valueOf(i)) / 2);
+            int i1 = Integer.parseInt(String.valueOf(i)) / 2;
 
-            System.out.println("=======000======> "+number);
+            System.out.println("=======000======> ");
         }
 
     }

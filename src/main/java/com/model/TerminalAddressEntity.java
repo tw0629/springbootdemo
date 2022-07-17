@@ -1,15 +1,16 @@
 package com.model;
 
 public class TerminalAddressEntity {
-//    private String labelname;
-//
-//    public String getLabelname() {
-//        return labelname;
-//    }
-//
-//    public void setLabelname(String labelname) {
-//        this.labelname = labelname;
-//    }
+
+    private CarMessage carMessage;
+
+    public CarMessage getCarMessage() {
+        return carMessage;
+    }
+
+    public void setCarMessage(CarMessage carMessage) {
+        this.carMessage = carMessage;
+    }
 
     /**
      * 终点站地址ID

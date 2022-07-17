@@ -1,11 +1,14 @@
 package com.tw.java8_Lambda;
 
 import com.model.TerminalAddressEntity;
+import com.tw.java8_Lambda.demo1.Apple;
+import com.tw.java8_Lambda.demo2.Student;
+import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
+import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class test_stream_foreach {
 
@@ -118,4 +121,57 @@ public class test_stream_foreach {
 
 
     }
+
+
+    @Test
+    public void test2(){
+        List<Apple> appleList = new ArrayList<>();
+        Apple apple1 =  new Apple(1,"苹果1",new BigDecimal("3.25"),10);
+        Apple apple2 = new Apple(2,"芒果2",new BigDecimal("1.35"),20);
+        Apple apple3 =  new Apple(3,"香蕉3",new BigDecimal("2.89"),30);
+        appleList.add(apple1);
+        appleList.add(apple2);
+        appleList.add(apple3);
+
+        List<Apple> appleList2 = new ArrayList<>();
+        CollectionUtils.addAll(appleList2, new Object[appleList.size()]);
+        Collections.copy(appleList2, appleList);
+
+        List<Apple> appleList3 = new ArrayList<>();
+        CollectionUtils.addAll(appleList3, new Object[appleList.size()]);
+        Collections.copy(appleList3, appleList);
+
+
+        Student s1 = new Student(1L, "肖战", 15, "浙江");
+        s1.setAppleList(appleList2);
+        Student s2 = new Student(2L, "王一博", 15, "湖北");
+        s2.setAppleList(appleList2);
+        Student s3 = new Student(3L, "杨紫", 17, "北京");
+        s3.setAppleList(appleList3);
+        List<Student> students = new ArrayList<>();
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+
+
+        Optional<Student> op = students.stream().reduce((d1, d2) -> {
+            d1.getAppleList().addAll(d2.getAppleList());
+            return d1;
+        });
+
+        Student student = op.get();
+
+        System.out.println("=========> "+op.get());
+
+    }
+
+    @Test
+    public void test3() {
+        List<Apple> appleList = new ArrayList<>();
+        Apple apple1 = new Apple(1, "苹果1", new BigDecimal("3.25"), 10);
+        Apple apple2 = new Apple();
+        BeanUtils.copyProperties(apple1,apple2);
+        System.out.println(apple2);
+    }
+
 }

@@ -884,7 +884,7 @@ public class DateUtils2 {
     {
         try
         {
-            SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_YYYYMMDDHHMMSS);
+            SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE_YYYY_MM_DD_HH_MM_SS);
             Date date = sdf.parse(dateString);
             return date;
         }

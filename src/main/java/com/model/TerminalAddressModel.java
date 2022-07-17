@@ -1,6 +1,17 @@
 package com.model;
 
 public class TerminalAddressModel {
+
+    private CarMessage carMessage;
+
+    public CarMessage getCarMessage() {
+        return carMessage;
+    }
+
+    public void setCarMessage(CarMessage carMessage) {
+        this.carMessage = carMessage;
+    }
+
     private String labelname;
 
     public String getLabelname() {

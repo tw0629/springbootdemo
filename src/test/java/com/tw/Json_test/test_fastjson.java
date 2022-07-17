@@ -1,13 +1,18 @@
 package com.tw.Json_test;
 
+import cn.hutool.core.lang.Assert;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.model.JsonTestObject;
 import com.model.TerminalAddressModel;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class test_fastjson {
 
@@ -82,5 +87,64 @@ public class test_fastjson {
 
     }
 
+
+    @Test
+    public void test4(){
+
+        String json = "{\"id\":\"1\",\"name\":\"json1\",\"car_message\":{\"vin\":\"111\",\"serialName\":\"111\",\"fitStatus\":\"ture\"}}";
+        JsonTestObject jsonTestObject = JSON.parseObject(json, JsonTestObject.class);
+        System.out.println("===============>" + jsonTestObject.toString());
+
+        System.out.println("10020062918490529859622379520".hashCode()%128);
+        System.out.println();
+
+        // String json2 = "{\"payment\":\"{\\\"paymentBehavior\\\":\\\"REGULAR_PAYMENT\\\"}\",\"order\":\"{\\\"orderType\\\":\\\"POS\\\"}\"}";
+
+
+        String base64MW = "eyJwYXltZW50Ijoie1wicGF5bWVudEJlaGF2aW9yXCI6XCJSRUdVTEFSX1BBWU1FTlRcIn0iLCJvcmRlciI6IntcIm9yZGVyVHlwZVwiOlwiUE9TXCJ9In0=";
+        byte[] decoded = Base64.getDecoder().decode(base64MW);
+
+
+    }
+
+    @Test
+    public void test5(){
+
+        String base64MW = "eyJwYXltZW50Ijoie1wicGF5bWVudEJlaGF2aW9yXCI6XCJSRUdVTEFSX1BBWU1FTlRcIn0iLCJvcmRlciI6IntcIm9yZGVyVHlwZVwiOlwiUE9TXCJ9In0=";
+
+        //Original byte[]
+        //byte[] bytes = base64MW.getBytes();
+
+        //Base64 Encoded
+        //String encoded = Base64.getEncoder().encodeToString(bytes);
+
+        //Base64 Decoded
+        byte[] decoded = Base64.getDecoder().decode(base64MW);
+
+        //Verify original content
+        System.out.println(new String(decoded));
+        System.out.println(isBase64(base64MW));
+        System.out.println("");
+
+
+    }
+
+    @Test
+    public void test56(){
+        String a = "";
+        String b = null;
+        String c = "  ";
+        String d = "d";
+
+        //Assert.isNull(b);
+        //Assert.notNull(b);
+        Assert.notEmpty(a);
+
+    }
+
+    private static boolean isBase64(String str) {
+        String base64Pattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
+        return Pattern.matches(base64Pattern, str);
+    }
 
 }

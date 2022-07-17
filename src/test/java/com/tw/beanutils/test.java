@@ -1,11 +1,13 @@
 package com.tw.beanutils;
 
-import com.model.TerminalAddressEntity;
-import com.model.TerminalAddressEntity2;
-import com.model.TerminalAddressModel;
-import com.model.TerminalAddressModel2;
+import com.alibaba.fastjson.JSONObject;
+import com.model.*;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class test {
 
@@ -20,10 +22,16 @@ public class test {
         terminalAddressEntity.setProvince("山西");
         terminalAddressEntity.setTerminalAddressId(123L);
         terminalAddressEntity.setWorkerCode("666");
+        CarMessage carMessage = new CarMessage();
+        carMessage.setVin("123456");
+        terminalAddressEntity.setCarMessage(carMessage);
+
         TerminalAddressModel terminalAddressModel = new TerminalAddressModel();
 
         BeanUtils.copyProperties(terminalAddressEntity, terminalAddressModel);
 
+        System.out.println(JSONObject.toJSONString(null));
+        System.out.println(JSONObject.toJSONString(terminalAddressModel));
         System.out.println(terminalAddressModel.toString());
     }
 
@@ -51,11 +59,34 @@ public class test {
         String s1 = "天地";
         String s2 = "哈哈";
         String s3 = "天地";
+        String trade_order_id = "10020060118086379034954649600";
 
         System.out.println("=======>" + s1.equals(s2));
         System.out.println("=======>" + s2.equals(s1));
         System.out.println("=======>" + s3.equals(s1));
         System.out.println("=======>" + s1.equals(s3));
+
+        int mo = Math.abs(trade_order_id.hashCode()) % 128;
+        System.out.println("=======>" + mo);
+        System.out.println();
+
+        List<String> storeIdList = new ArrayList<>();
+        storeIdList.add("123");
+        storeIdList.add("456");
+        storeIdList.add("qwe");
+        String s = storeIdConditions(storeIdList);
+        System.out.println("=======>" + s);
+
+
+    }
+
+    private String storeIdConditions(List<String> storeIdList){
+        StringBuilder storeIdStr =  new StringBuilder();
+        storeIdList.forEach(storeId -> {
+            storeIdStr.append("'").append(storeId).append("'").append(",");
+        });
+        storeIdStr.deleteCharAt(storeIdStr.length()-1);
+        return storeIdStr.toString();
     }
 
 }
