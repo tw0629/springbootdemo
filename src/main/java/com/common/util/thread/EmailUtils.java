@@ -1,15 +1,12 @@
 package com.common.util.thread;
 
-import cn.hutool.extra.mail.MailUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.*;
 import com.google.common.collect.Sets;
-import com.tw2.FetchConfigurationBO;
+import com.service.tw2.FetchConfigurationBO;
 
-import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
