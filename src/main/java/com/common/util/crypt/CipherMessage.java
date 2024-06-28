@@ -1,4 +1,4 @@
-package com.common.util;
+package com.common.util.crypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

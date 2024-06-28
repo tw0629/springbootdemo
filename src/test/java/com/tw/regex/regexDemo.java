@@ -145,4 +145,14 @@ public class regexDemo {
         }
     }
 
+    @Test
+    public void test6() {
+
+        String emailSubject = "中租对账流水";
+        if (Pattern.matches(emailSubject, "中租对账流水20220728") ){
+            System.out.println("match");
+        }else {
+            System.out.println("not match");
+        }
+    }
 }

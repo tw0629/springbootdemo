@@ -9,10 +9,8 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -649,6 +647,16 @@ public class test {
         Integer show = -1;
         Integer isShow = Sets.newHashSet(0,1).contains(show) ? show : 1;
         System.out.println(isShow);
+
+        String currentDay = OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String fileNameDateOffset = "0";
+
+        String format = LocalDate.parse(currentDay, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                .minusDays(Integer.parseInt(fileNameDateOffset))
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        System.out.println(format);
+
 
     }
 

@@ -1,4 +1,4 @@
-package com.common.util;
+package com.common.util.crypt;
 
 import org.apache.commons.codec.binary.Hex;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;

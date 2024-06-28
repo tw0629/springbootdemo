@@ -1,6 +1,7 @@
 package other;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Sets;
 import com.model.*;
 import com.tw.A_commonObject.Order;
 import com.tw.CheckParam.CheckParamUtil;
@@ -23,16 +24,27 @@ import java.util.*;
  */
 public class test2 {
 
+    private static final Set<String> existDuplicateTransactionTypes = Sets.newHashSet("REFUND", "ACQ_FEE_IN");
+
     @Test
     public void test() {
 
-        boolean i = true;
+        String transactionType = "ACQ_FEE_OUT";
+        boolean contains = existDuplicateTransactionTypes.contains(transactionType);
+        if( contains && duplicateRefundAndFeeRecord()){
+            return;
+        }
 
-        Boolean ii = i;
-
-        System.out.println("===============>" + ii);
+        System.out.println("===============>" + new Date().toString());
+        System.out.println("===============>" + contains);
 
     }
+
+    public boolean duplicateRefundAndFeeRecord(){
+        System.out.println("===============>" );
+        return true;
+    }
+
 
     @Test
     public void test2() {

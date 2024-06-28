@@ -1,4 +1,4 @@
-package com.common.util;
+package com.common.util.class2;
 
 import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;

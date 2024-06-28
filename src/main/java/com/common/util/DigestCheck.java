@@ -1,5 +1,6 @@
 package com.common.util;
 
+import com.common.util.crypt.MD5;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;

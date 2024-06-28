@@ -126,6 +126,9 @@ public class UrlConnection {
         // TODO 自动生成的方法存根
 
         System.out.println(doGet("http://www.baidu.com", ""));
+        System.out.println(doPost("http://www.baidu.com", ""));
+        System.out.println("");
+        System.out.println(doGet("https://www.bilibili.com/", ""));
 
     }
 }

@@ -1,4 +1,4 @@
-package com.common.util;
+package com.common.util.class2;
 
 import java.io.File;
 import java.net.MalformedURLException;

@@ -3,6 +3,7 @@ package com.tw.BigDecimal_test;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 
@@ -61,6 +62,34 @@ public class BigDecimal_test2 {
 
     }
 
+    @Test
+    public void test4(){
+
+        Long amount = 100000L;
+        BigDecimal divide = BigDecimal.valueOf(amount).divide(BigDecimal.valueOf(10l).pow(2));
+        BigInteger bigInteger = divide.toBigIntegerExact();
+        System.out.println("==========>"+bigInteger);
+
+        Number number = 123456;
+        Number number2 = 123456L;
+        Number number3 = new BigDecimal(1.23456);
+        System.out.println("==========>"+number);
+        System.out.println("==========>"+number2);
+        System.out.println("==========>"+number2.toString());
+        System.out.println("==========>"+number3);
+        System.out.println("==========>"+number3.toString());
+
+        if("Tianwei".equalsIgnoreCase("TIANWEI")){
+            System.out.println("==========>"+"Tianwei");
+        }
+        if("tianwei".equalsIgnoreCase("TIANWEI")){
+            System.out.println("==========>"+"tianwei");
+        }
+
+
+        System.out.println("==========>");
+
+    }
 
 
 

@@ -300,8 +300,20 @@
         <!--<artifactId>activemq-core</artifactId>-->
         <!--<version>5.5.0</version>-->
         <!--</dependency>-->
-    </dependencies>
 
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpg-jdk15on</artifactId>
+            <version>1.50</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.50</version>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>

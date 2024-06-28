@@ -1,6 +1,6 @@
 package com.tw.encrypt.des;
 
-import com.common.util.CipherMessage;
+import com.common.util.crypt.CipherMessage;
 
 import java.security.Key;
 

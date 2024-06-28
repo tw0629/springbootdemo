@@ -72,10 +72,23 @@ public class test2 {
     public void test4() {
 
         String s = "名单筛选匹配结果.xlsx";
-
         String substring = s.substring(0,s.lastIndexOf("."));
-
         System.out.println("=========>"+substring);
+
+        String prefix = "";
+        StringBuilder lockKey = new StringBuilder();
+        lockKey.append("_123456");
+
+        if(StringUtils.isNotEmpty(prefix)){
+            lockKey = new StringBuilder().append(prefix).append(lockKey.toString());
+        }else if(StringUtils.isNotEmpty(lockKey.toString())){
+            String sss = lockKey.substring(1, lockKey.length());
+            lockKey = new StringBuilder().append(sss);
+        }
+
+        lockKey.deleteCharAt(0);
+
+        System.out.println("=========>"+lockKey);
 
     }
 }

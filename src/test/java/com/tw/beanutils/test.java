@@ -56,16 +56,8 @@ public class test {
 
     @Test
     public void test3() {
-        String s1 = "天地";
-        String s2 = "哈哈";
-        String s3 = "天地";
-        String trade_order_id = "10020060118086379034954649600";
 
-        System.out.println("=======>" + s1.equals(s2));
-        System.out.println("=======>" + s2.equals(s1));
-        System.out.println("=======>" + s3.equals(s1));
-        System.out.println("=======>" + s1.equals(s3));
-
+        String trade_order_id = "10020090519476573795820421120";
         int mo = Math.abs(trade_order_id.hashCode()) % 128;
         System.out.println("=======>" + mo);
         System.out.println();
